@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4648c6c6-9d66-4a64-8db6-20b885b07cd1" name="Default Changelist" comment="" />
+    <list default="true" id="4648c6c6-9d66-4a64-8db6-20b885b07cd1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -10,23 +12,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/reader.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3518">
-              <caret line="218" column="34" selection-start-line="218" selection-start-column="34" selection-end-line="218" selection-end-column="34" />
-              <folding>
-                <element signature="e#1#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/graph1.svg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/merged.html">
           <provider selected="true" editor-type-id="text-editor" />
@@ -51,22 +36,43 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/pygal/graph/public.py">
+        <entry file="file://$PROJECT_DIR$/src/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="83" column="12" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="49" />
+            <state relative-caret-position="187">
+              <caret line="11" column="31" lean-forward="true" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+              <folding>
+                <element signature="e#1#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/reader.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="109" column="33" selection-start-line="109" selection-start-column="33" selection-end-line="109" selection-end-column="33" />
+              <folding>
+                <element signature="e#1#32#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test.py">
+        <entry file="file://$PROJECT_DIR$/src/O14733">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-              <folding>
-                <element signature="e#1#15#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="119">
+              <caret line="7" column="59" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/P0AD49">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="49" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -93,11 +99,18 @@
       <find>perc</find>
       <find>evalue</find>
       <find>iden</find>
+      <find>treemap</find>
     </findStrings>
+    <replaceStrings>
+      <replace>pie_map</replace>
+    </replaceStrings>
     <dirStrings>
       <dir>C:\Users\Osvaldas\PycharmProjects\Trabajo3\venv\Codigo</dir>
       <dir>C:\Users\Osvaldas\PycharmProjects\Trabajo3\Codigo</dir>
     </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -111,8 +124,10 @@
         <option value="$PROJECT_DIR$/src/otro.py" />
         <option value="$PROJECT_DIR$/venv/Lib/site-packages/reader.py" />
         <option value="$PROJECT_DIR$/src/search.py" />
-        <option value="$PROJECT_DIR$/src/reader.py" />
+        <option value="$PROJECT_DIR$/src/P0AD49" />
+        <option value="$PROJECT_DIR$/src/O14733" />
         <option value="$PROJECT_DIR$/src/test.py" />
+        <option value="$PROJECT_DIR$/src/reader.py" />
       </list>
     </option>
   </component>
@@ -122,11 +137,13 @@
     <option name="width" value="683" />
     <option name="height" value="728" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -147,7 +164,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -312,6 +328,14 @@
       <option name="presentableId" value="Default" />
       <updated>1552726297524</updated>
     </task>
+    <task id="LOCAL-00001" summary="He anadido la descripcion de las funciones y algun cambio para arreglar alguna funcion">
+      <created>1554396469700</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1554396469701</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -325,18 +349,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49865952" visible="true" weight="0.13918306" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49865952" visible="true" weight="0.14372164" />
       <window_info id="Structure" order="1" sideWeight="0.5013405" side_tool="true" weight="0.24923548" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32843137" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4977307" weight="0.48202613" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4977307" visible="true" weight="0.48202613" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32843137" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32843137" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49923548" weight="0.32843137" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50226927" side_tool="true" weight="0.48202613" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49923548" weight="0.5277778" />
@@ -347,17 +372,17 @@
       <window_info anchor="right" id="R Packages" order="4" weight="0.3290469" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49865952" visible="true" weight="0.1354009" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49865952" visible="true" weight="0.14372164" />
       <window_info id="Structure" order="1" sideWeight="0.5013405" side_tool="true" weight="0.24923548" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32843137" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4977307" visible="true" weight="0.48202613" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4977307" visible="true" weight="0.48202613" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32843137" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32843137" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49923548" weight="0.32843137" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50226927" side_tool="true" weight="0.48202613" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49923548" weight="0.5277778" />
@@ -367,6 +392,10 @@
       <window_info anchor="right" id="R Graphics" order="3" weight="0.3290469" />
       <window_info anchor="right" id="R Packages" order="4" weight="0.3290469" />
     </layout-to-restore>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="He anadido la descripcion de las funciones y algun cambio para arreglar alguna funcion" />
+    <option name="LAST_COMMIT_MESSAGE" value="He anadido la descripcion de las funciones y algun cambio para arreglar alguna funcion" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/Bio/Blast/NCBIXML.py">
@@ -499,18 +528,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/search.tab">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/pygal/graph/public.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="83" column="12" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="49" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/graph1.svg">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PIO39916.1">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="96" selection-start-column="96" selection-end-column="96" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/P10696">
       <provider selected="true" editor-type-id="text-editor">
@@ -522,30 +548,52 @@
     <entry file="file://$PROJECT_DIR$/src/merged.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/PIO39916.1">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="96" selection-start-column="96" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/search.tab">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="31" lean-forward="true" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+          <folding>
+            <element signature="e#1#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/P0AD49">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="49" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/reader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3518">
-          <caret line="218" column="34" selection-start-line="218" selection-start-column="34" selection-end-line="218" selection-end-column="34" />
+        <state relative-caret-position="135">
+          <caret line="109" column="33" selection-start-line="109" selection-start-column="33" selection-end-line="109" selection-end-column="33" />
           <folding>
             <element signature="e#1#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/pygal/graph/public.py">
+    <entry file="file://$PROJECT_DIR$/src/search_UniProt.tab">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="83" column="12" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="49" />
-        </state>
+        <state relative-caret-position="-100" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test.py">
+    <entry file="file://$PROJECT_DIR$/src/O14733">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-          <folding>
-            <element signature="e#1#15#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="7" column="59" selection-start-line="7" selection-start-column="59" selection-end-line="7" selection-end-column="59" />
         </state>
       </provider>
     </entry>

@@ -1,25 +1,32 @@
 
 from bioservices import UniProt
 from bioservices import KEGG
-import os
-import sys
 import time
 from Bio.Blast.Applications import NcbideltablastCommandline
 from yaspin import yaspin
 from pygal.style import Style
 import pygal
-from lxml.html import open_in_browser
 import webbrowser
 
 
 def searchDBlast(query="Q03963",evalue=0.001):
+    '''
+    This function performs a remote Delta Blast search. Requires previous installation of Blast+ (v 2.9.0+)
+    :param query: A string with the name of the file with the query.
+    :param evalue: A float with evalue threshold.
+    :return: A tab delimited file (filename="search.tab") with Delta Blast search results.
+    '''
     start_time=time.clock()
     with yaspin(text="Performing Delta Blast Search...", color="cyan") as sp:
         cline = NcbideltablastCommandline(query=query, db="nr", evalue=evalue, remote=True, out="search.tab", outfmt=7)
         cline()
-        sp.text="Performing Delta Blast Search=>Task done in "+str(run_time(start_time,4))+"s"
+        sp.text="Performing Delta Blast Search=> Task done in "+str(run_time(start_time,4))+"s"
         sp.ok("✔")
 def readDBlast ():
+    '''
+    This function reads the Tab delimited file generated during a Delta Blast search and generates a dictionary.
+    :return: A Dictionary with Delta Blast search data.
+    '''
     start_time = time.clock()
     with yaspin(text="Reading Delta Blast Search...", color="cyan") as sp:
         d={}
@@ -43,12 +50,17 @@ def readDBlast ():
 
         file.close()
         ##os.remove("search.tab")
-        end_time = time.clock() - start_time
-        sp.text = "Reading Delta Blast Search=>Task done in " + str(run_time(start_time,4)) + "s"
+        sp.text = "Reading Delta Blast Search=> Task done in " + str(run_time(start_time,4)) + "s"
         sp.ok("✔")
         return d
 
 def searchUniProt(d):
+    '''
+    This function uses the Uniprot IDs of the Delta Blast search saved in a dictionary and returns a tab delimited file.
+    :param d: A dictionary with Delta Blast search data.
+    :return: A Tab Delimited File with UniProt search results.
+    '''
+    search_uniprot=open("search_UniProt.tab","w")
     start_time = time.clock()
     with yaspin(text="Performing UniProt Search...", color="cyan") as sp:
         uni = UniProt(verbose=False)
@@ -69,47 +81,52 @@ def searchUniProt(d):
                 header=False
             reps_done += 1
             reps -= 1
-        end_time = time.clock() - start_time
-        sp.text = "Performing UniProt Search=>Task done in " + str(run_time(start_time,4)) + "s"
+        search_uniprot.write(data)
+        sp.text = "Performing UniProt Search=> Task done in " + str(run_time(start_time,4)) + "s"
         sp.ok("✔")
-        return data
-
-def readUniProt(data):
+def readUniProt():
+    '''
+    This function reads the Tab delimited file generated in the UniProt search and generates a dictionary of the data.
+    :return: A dictionary with UniProt search data.
+    '''
     start_time = time.clock()
     with yaspin(text="Reading UniProt Search...", color="cyan") as sp:
         header = True
         d={}
-        data=data.rstrip()
-        data=data.split("\n")
+        with open("search_UniProt.tab") as data:
+            for line in data:
+                line = line.strip()
+                line=line.split("\t")
+                if header:
+                    keys =line
+                    header=False
+                else:
+                    i=0
+                    for key in keys:
 
-        for line in data:
-            line = line.strip()
-            line=line.split("\t")
-            if header:
-                keys =line
-                header=False
-            else:
-                i=0
-                for key in keys:
-
-                    try:
-                        if line[i].find("; ")!=-1:
-                            out=line[i].split("; ")
+                        try:
+                            if line[i].find("; ") != -1:
+                                out = line[i].split("; ")
+                            else:
+                                out=line[i][:-1]
+                                out=out.split(";")
+                        except  IndexError:
+                            out="-"
+                        if key not in d:
+                            d[key] = [out]
                         else:
-                            out=[line[i].replace(";","")]
-                    except  IndexError:
-                        out="-"
-                    if key not in d:
-                        d[key] = [out]
-                    else:
-                        d[key].append(out)
-                    i += 1
-        end_time = time.clock() - start_time
-        sp.text = "Reading UniProt Search=>Task done in " + str(run_time(start_time,4)) + "s"
-        sp.ok("✔")
-        return d
+                            d[key].append(out)
+                        i += 1
+            sp.text = "Reading UniProt Search=> Task done in " + str(run_time(start_time,4)) + "s"
+            sp.ok("✔")
+            return d
 
 def getGO(d):
+    '''
+    This function retrieves GO Annotations count from a dictionary of UniProt search data.
+    :param d: A dictionary with UniProt search data.
+    :return: A dictionary with GO Annotation count.
+    '''
     start_time = time.clock()
     with yaspin(text="Retrieving GO Annotations...", color="cyan") as sp:
         count_Go={}
@@ -120,13 +137,17 @@ def getGO(d):
                         count_Go[elem] +=1
                     except KeyError:
                         count_Go[elem] = 1
-        end_time = time.clock() - start_time
-        sp.text = "Retrieving GO Annotations=>Task done in " + str(run_time(start_time,4)) + "s"
+        sp.text = "Retrieving GO Annotations=> Task done in " + str(run_time(start_time,4)) + "s"
         sp.ok("✔")
+        print(count_Go)
         return count_Go
 
 
 def getKEGG(d):
+    '''This function retrieves KEGG Pathways count using KEGG IDs obtained from a UniProt search dictionary.
+   :param d: A dictionary with UniProt search data.
+   :return: A dictionary with KEGG pathways count.
+   '''
     start_time = time.clock()
     with yaspin(text="Retrieving KEGG Annotations...", color="cyan") as sp:
         count_KEGG={}
@@ -140,40 +161,51 @@ def getKEGG(d):
         path = KEGG()
         dic_Paths={}
         count_Paths={}
+        print (count_KEGG)
         for key in count_KEGG:
             res=key.split(":")
-            for k,val in path.get_pathway_by_gene(res[1], res[0]).items():
-                name = ":".join([k, val])
-                if key not in dic_Paths:
-                    dic_Paths[key] =[name]
-                else:
-                    dic_Paths[key].append(name)
-                path_id = split(k)
-                rename="map"+path_id
-                rename=":".join([val, rename])
-                try:
-                    count_Paths[rename] += count_KEGG[key]
-                except KeyError:
-                    count_Paths[rename] = count_KEGG[key]
-        end_time = time.clock() - start_time
-        sp.text = "Retrieving KEGG Annotations=>Task done in " + str(run_time(start_time,4)) + "s"
+
+            try:
+                for k,val in path.get_pathway_by_gene(res[1], res[0]).items():
+                    name = ":".join([k, val])
+                    if key not in dic_Paths:
+                        dic_Paths[key] =[name]
+                    else:
+                        dic_Paths[key].append(name)
+                    path_id = split(k)
+                    rename="map"+path_id
+                    rename=":".join([val, rename])
+                    try:
+                        count_Paths[rename] += count_KEGG[key]
+                    except KeyError:
+                        count_Paths[rename] = count_KEGG[key]
+            except AttributeError:
+                break
+        sp.text = "Retrieving KEGG Annotations=> Task done in " + str(run_time(start_time,4)) + "s"
         sp.ok("✔")
         return count_Paths
 
-def drawMultiPie (dbs,limit = 30):
+def drawMultiPie (dbs,limit = 0):
+    '''
+    This function draws a Multi Series Pie chart for KEGG and GO terms
+    :param dbs: List of Dictionaries with Annotation counts for each Annotation Database.
+    :param limit: Integer value of count to filter Annotations .
+    :return: HTML Multi Series Pie
+    '''
     custom_style = Style(
         opacity='0.8',
         opacity_hover='0.5',
         title_font_size=36,
         inner_radius = 0.75
     )
-    treemap = pygal.Pie(height=400,tooltip_border_radius=10, style=custom_style)
-    treemap.title = "Functional Annotations"
-    treemap_other = pygal.Pie(height=400, tooltip_border_radius=10, style=custom_style)
-    treemap_other.title = "Other"
+    pie_map = pygal.Pie(height=400,tooltip_border_radius=10, style=custom_style)
+    pie_map.title = "Functional Annotations"
+    pie_map_other = pygal.Treemap(height=400, tooltip_border_radius=10, style=custom_style)
+    pie_map_other.title = "Other"
     html_file = open("merged.html", 'w')
     html_file.write("<html><head>…</head><body>" + "\n")
-
+    draw_pie=False
+    draw_pie_other=False
     for db in dbs:
         values = []
         values_other= []
@@ -183,7 +215,9 @@ def drawMultiPie (dbs,limit = 30):
             go=True
         other=0
         for key in sorted(db, key=db.get, reverse=True):
-            if db[key] <= limit:
+            if db[key] <=limit:
+                break
+            if db[key] <=15:
                 other+=db[key]
                 limited=True
             if go:
@@ -204,25 +238,40 @@ def drawMultiPie (dbs,limit = 30):
             else:
                 values.append({'value': db[key], 'label': name, 'xlink': {'href': link},'color':color})
         if other:
-            values.append({'value': other, 'label': 'Other', 'xlink': {'href': link}, 'color': color})
-        if values_other != []:
-            treemap_other.add(db_name, values_other)
+            values.append({'value': other, 'label': 'Other', 'color': color})
         if values != []:
-            treemap.add(db_name, values)
+            draw_pie=True
+            pie_map.add(db_name, values)
+        if values_other != []:
+            draw_pie_other=True
+            pie_map_other.add(db_name, values_other)
         else:
             print ("No annotations were found.")
-    treemap.render_to_file('graph1.svg')
-    html_file.write("      <object type=\"image/svg+xml\" data=\"graph1.svg\"></object>" + "\n")
-    treemap_other.render_to_file('graph2.svg')
-    html_file.write("      <object type=\"image/svg+xml\" data=\"graph2.svg\"></object>" + "\n")
-    html_file.write("</body></html>")
-    webbrowser.open("merged.html")
+    if draw_pie:
+        pie_map.render_to_file('graph1.svg')
+        html_file.write("      <object type=\"image/svg+xml\" data=\"graph1.svg\"></object>" + "\n")
+        if draw_pie_other:
+            pie_map_other.render_to_file('graph2.svg')
+            html_file.write("      <object type=\"image/svg+xml\" data=\"graph2.svg\"></object>" + "\n")
+        html_file.write("</body></html>")
+        webbrowser.open("merged.html")
 
 def split (s):
+    '''
+    This function removes the organism identifier in KEGG IDs.
+    :param s: A string with the KEGG ID to split.
+    :return: A string with the numerical KEGG ID.
+    '''
     head=s.rstrip("0123456789")
     tail=s[len(head):]
     return tail
 def run_time (start_time,r):
+    '''
+    This function measures the run time of another function.
+    :param start_time: A float with the start time of a function
+    :param r: A integer value by which
+    :return:
+    '''
     end_time=time.clock()-start_time
     end_time=round(end_time,r)
     return end_time
