@@ -23,7 +23,7 @@ _ = parser.add_argument("protein",
 
 _ = parser.add_argument("min_identity",
                         action="store",
-                        type=int,
+                        type=float,
                         help="Minimum identity score to consider (Default: 75)")
 
 _ = parser.add_argument("min_support",
@@ -79,6 +79,6 @@ go_list = go.accumulate_go(uniprot_data['Gene ontology (GO)'])
 kegg_list = kegg.search_kegg(uniprot_data["Cross-reference (kegg)"])
 
 # Draw charts.
-multi_pie.plot(go_list, kegg_list, args.min_support, name)
+multi_pie.plot(go_list, kegg_list, args.min_support, args.min_identity, name)
 
 webbrowser.open(f"{name}.html")
