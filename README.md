@@ -40,3 +40,18 @@ optional arguments:
 5. Busca las Ids KEGG en la base de datos KEGG
 6. Recupera los Pathways KEGG
 7. Dibuja un diagrama con los términos GO y KEGG
+
+
+### Instalación
+
+Requiere `pipenv`.
+
+#### Instalar `pipenv`
+
+```bash
+pip install pipenv
+```
+
+#### Preparar *virtual enviroment*
+
+Después de clonar el repo, ir al directorio raíz y ejecutar: ```pipenv install``` para crear el entorno e instalar todas las dependencias.
